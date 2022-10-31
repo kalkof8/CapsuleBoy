@@ -12,16 +12,11 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float _friction;
     [SerializeField] private float _maxSpeed;
     [SerializeField] private float _jumpTorque;
+    [SerializeField] private Rigidbody _rigidbody;
 
-    private Rigidbody _rigidbody;
     private int _jumpFramUpdate;
     private float _timerJump = 0f;
     private float _periodJump = 0.1f;
-
-    private void Start()
-    {
-        _rigidbody = GetComponent<Rigidbody>();
-    }
 
     private void Update()
     {

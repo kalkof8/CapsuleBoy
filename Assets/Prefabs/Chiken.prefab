@@ -237,6 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 3
   _timeToReachSpeed: 1
+  _rigidbody: {fileID: 5743905659672766055}
 --- !u!153 &5743905659672766051
 ConfigurableJoint:
   m_ObjectHideFlags: 0

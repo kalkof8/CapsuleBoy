@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _velocity: {x: 0, y: 0, z: 10}
   _maxSpeedRotate: 16
+  _rigidbody: {fileID: 100652247584784199}
 --- !u!1 &100652248242200224
 GameObject:
   m_ObjectHideFlags: 0

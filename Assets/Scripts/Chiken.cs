@@ -4,14 +4,13 @@ public class Chiken : MonoBehaviour
 {
     [SerializeField] private float _speed = 3f;
     [SerializeField] private float _timeToReachSpeed = 1f;
+    [SerializeField] private Rigidbody _rigidbody;
 
     private Transform _playerTransform;
-    private Rigidbody _rigidbody;
 
     private void Start()
     {
-        _playerTransform = FindObjectOfType<PlayerMove>().transform;
-        _rigidbody = GetComponent<Rigidbody>();
+        _playerTransform = PlayerHealth.instance.transform;
     }
     
     private void FixedUpdate()

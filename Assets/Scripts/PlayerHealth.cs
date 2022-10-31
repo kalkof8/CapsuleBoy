@@ -3,6 +3,8 @@ using UnityEngine.Events;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public static PlayerHealth instance { get; private set; }
+
     [SerializeField] private Menu _menu;
     [SerializeField] private int _health;
     [SerializeField] private int _maxHealth;
@@ -11,6 +13,11 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private UnityEvent _eventTakeDamage;
 
     private bool _invulnerable = false;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {

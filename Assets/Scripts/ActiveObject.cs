@@ -9,7 +9,7 @@ public class ActiveObject : MonoBehaviour
 
     private void Start()
     {
-        _player = FindObjectOfType<PlayerHealth>().gameObject.transform;
+        _player = PlayerHealth.instance.transform;
     }
 
     private void Update()

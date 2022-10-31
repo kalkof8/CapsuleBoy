@@ -10,7 +10,7 @@ public class RotateToPlayer : MonoBehaviour
 
     private void Start()
     {
-        _playerTransform = FindObjectOfType<PlayerHealth>().transform;
+        _playerTransform = PlayerHealth.instance.transform;
     }
 
     private void Update()
