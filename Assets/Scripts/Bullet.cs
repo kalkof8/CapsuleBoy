@@ -2,25 +2,30 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private GameObject _bulletEffect;
-
-    private void Start()
-    {
-        Destroy(gameObject, 3f);
-    }
+    [SerializeField] private string _tagEffect;
 
     private void OnCollisionEnter(Collision collision)
     {
-        Instantiate(_bulletEffect, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        GameObject objEffect =  ObjectPooler.Instance.SpawFromPool(_tagEffect, transform.position, Quaternion.identity);
+        objEffect.GetComponent<BulletEffect>().StartDeactivate();
+        gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<LootHealth>() == null && other.GetComponent<LootBullet>() == null)
         {
-            Instantiate(_bulletEffect, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            ObjectPooler.Instance.SpawFromPool(_tagEffect, transform.position, Quaternion.identity);
+            gameObject.SetActive(false);
         }
+    }
+    public void StartDeactivate()
+    {
+        Invoke(nameof(Deactivate), 2f);
+    }
+
+    private void Deactivate()
+    {
+        gameObject.SetActive(false);
     }
 }

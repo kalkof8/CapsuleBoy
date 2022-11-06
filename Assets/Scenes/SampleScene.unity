@@ -53773,6 +53773,7 @@ MonoBehaviour:
   _friction: 0.6
   _maxSpeed: 4
   _jumpTorque: 5
+  _rigidbody: {fileID: 1511502637}
 --- !u!75 &1511502640
 ConstantForce:
   m_ObjectHideFlags: 0

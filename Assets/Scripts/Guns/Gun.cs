@@ -10,6 +10,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private float _timeReloading = 0.02f;
     [SerializeField] protected AudioSource _audioSource;
     [SerializeField] private GameObject[] _buttons;
+    [SerializeField] private string _tag;
 
     private bool _isPressed;
     private float _timer;
@@ -29,8 +30,9 @@ public class Gun : MonoBehaviour
     }
     public virtual void Shot()
     {
-        GameObject newBullet = Instantiate(_bulletPrefab, _spawn.position, _spawn.rotation);
+        GameObject newBullet = ObjectPooler.Instance.SpawFromPool(_tag, _spawn.position, _spawn.rotation);
         newBullet.GetComponent<Rigidbody>().velocity = _spawn.forward * _speedBullet;
+        newBullet.GetComponent<Bullet>().StartDeactivate();
         _audioSource.Play();
         _flash.SetActive(true);
         _smokePartical.Play();

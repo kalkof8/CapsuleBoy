@@ -286,4 +286,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e36e65e42171fe049a2bf780449a1fef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletEffect: {fileID: 1532786354616134, guid: a758dd4ff2cdeca4490d8bad46793923, type: 3}
+  _tagEffect: Effect
