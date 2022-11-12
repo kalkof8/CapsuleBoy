@@ -13,21 +13,26 @@ public class Menu : MonoBehaviour
 
     [SerializeField] private MonoBehaviour[] _objectsToDeactivate;
 
-    //[SerializeField] private Text _fps;
-    //[SerializeField] private Text _fixed;
+    [SerializeField] private Text _fps;
+    [SerializeField] private Text _fixed;
 
-    //private float _timerUpdate;
+    private float _timerUpdate;
 
-    //private void Update()
-    //{
-    //    _timerUpdate += Time.deltaTime;
-    //    if (_timerUpdate > 0.15f)
-    //    {
-    //        _timerUpdate = 0f;
-    //        _fps.text = "FPS: " + Mathf.Round(1 / Time.deltaTime).ToString();
-    //        _fixed.text = "FixedUp: " + Mathf.Round(1 / Time.fixedDeltaTime).ToString();
-    //    }
-    //}
+    private void Start()
+    {
+        Application.targetFrameRate = 60;
+    }
+
+    private void Update()
+    {
+        _timerUpdate += Time.deltaTime;
+        if (_timerUpdate > 0.15f)
+        {
+            _timerUpdate = 0f;
+            _fps.text = "FPS: " + Mathf.Round(1 / Time.deltaTime).ToString();
+            _fixed.text = "FixedUp: " + Mathf.Round(1 / Time.fixedDeltaTime).ToString();
+        }
+    }
 
     public void OpenMenuWindow()
     {
